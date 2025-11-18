@@ -1,5 +1,5 @@
 ### Allocators
-- [ ] Bump allocator
+- [X] Bump allocator
 - [ ] Stack allocator
 - [ ] Pool allocator
 - [ ] Slab allocator

@@ -1,5 +1,5 @@
 cc := clang
-cflags := -Wall -Wextra -pedantic -MMD -MP
+cflags := -std=c11 -Wall -Wextra -pedantic -MMD -MP
 incdir := -Iinclude
 objdir := build/obj
 

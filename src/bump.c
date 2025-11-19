@@ -3,27 +3,28 @@
 
 // calculate aligned offset from current position
 // ptr -> current pointer position
-static inline unsigned char *align_pointer(unsigned char *ptr, size_t alignment) {
+// alignment must be a power of two
+static inline u8 *align_pointer(u8 *ptr, size_t alignment) {
     uintptr_t addr = (uintptr_t)ptr;
     uintptr_t aligned_pointer = (addr + (alignment - 1)) & ~(alignment - 1);
-    return (unsigned char *)aligned_pointer;
+    return (u8 *)aligned_pointer;
 }
 
 void bumpInit(BumpAlloc *allocator, void *data, size_t size) {
-    if (!allocator || !data || size <= 0)
+    if (!allocator || !data || size == 0)
         return;
 
-    allocator->start = (unsigned char *)data;
+    allocator->start = (u8 *)data;
     allocator->next = allocator->start;
     allocator->capacity = size;
     allocator->alloc = 0;
 }
 
 void *bumpAlloc(BumpAlloc *allocator, size_t size, size_t alignment) {
-    if (!allocator || size <= 0 || alignment <= 0)
+    if (!allocator || size == 0 || alignment == 0)
         return NULL;
 
-    unsigned char *align_next = align_pointer(allocator->next, alignment);
+    u8 *align_next = align_pointer(allocator->next, alignment);
     if (align_next < allocator->next)
         return NULL; // alignment overflow
 

@@ -1,6 +1,6 @@
 ### Allocators
 - [X] Bump allocator
-- [ ] Stack allocator
+- [X] Stack allocator
 - [ ] Pool allocator
 - [ ] Slab allocator
 - [ ] Arena allocator

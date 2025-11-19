@@ -3,14 +3,16 @@
 
 #include <stddef.h>
 
+typedef unsigned char u8;
+
 // Manages pre allocated memory.
 // Implemented methods borrows the memory and does not own it.
 // Caller must pre allocate memory and free it themselves.
 typedef struct {
-    unsigned char *start; // Start of memory region
-    unsigned char *next; // Next available memory
+    u8 *start;       // Start of memory region
+    u8 *next;        // Next available memory
     size_t capacity; // Memory block capacity
-    size_t alloc; // Total allocated size
+    size_t alloc;    // Total allocated size
 } BumpAlloc;
 
 // Initialize allocator with existing memory buffer

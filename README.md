@@ -6,3 +6,4 @@
 - [ ] Arena allocator
 - [ ] Segregated free lists
 - [ ] Two-level segregated fit
+- [ ] Custom allocator (With only syscalls)
